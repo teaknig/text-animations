@@ -1,4 +1,27 @@
+html,
 body {
-  height: 500px;
-  background: blue;
+  height: 100vh;
+}
+
+body {
+  font-family: Helvetica, Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 10vw;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0% {
+   transform: translateY(10vw) translateX(10vw) skew(5deg, 60deg) scale(1, 2);
+  }
+  100% {
+    transform: translateY(0) translateX(0) skew(0deg, 0deg) scale(1, 1);
+  }
 }
