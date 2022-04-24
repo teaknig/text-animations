@@ -1,6 +1,7 @@
 html,
 body {
   height: 100vh;
+  overflow: hidden;
 }
 
 body {
@@ -50,6 +51,9 @@ body {
   &.background-white {
     background: white;
   }
+  &.background-yellow {
+    background: #DD8333;
+  }
   &.background-black {
     background: #080915;
 
@@ -70,6 +74,18 @@ body {
     align-items: center;
     justify-content: center;
   }
+
+  .h2-background {
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 55vw;
+    z-index: 0;
+    color: #DD8333;
+    text-shadow: 0px 0px 70px rgb(204, 120, 46);
+  }
 }
 
 h1 {
@@ -88,14 +104,23 @@ h1 {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: scale-parent 0.7s cubic-bezier(.14,.99,.57,1.44);
+    animation: scale-h1 0.7s cubic-bezier(.14,.99,.57,1.44);
     transform-origin: center;
-    overflow: hidden;
     white-space: nowrap;
   
     span {
       font-size: 1vw;
       margin-left: 10vw;
+    }
+  }
+  &.smooth {
+    z-index: 1;
+    position: relative;
+    animation: smooth-h1 0.7s cubic-bezier(.17,1.09,.89,.97);
+
+    p {
+      color: white;
+      margin: 0;
     }
   }
 }
@@ -123,11 +148,46 @@ h1 {
     margin-left: 0vw;
   }
 }
-@keyframes scale-parent {
+@keyframes scale-h1 {
   0% {
     transform: translateX(-50%) skew(50deg, 50deg);
   }
   100% {
     transform: translateX(0) skew(0deg, 0deg);
+  }
+}
+@keyframes smooth {
+  0% {
+    transform: translateY(25vw);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes smooth-p {
+  0% {
+    letter-spacing: normal;
+  }
+  100% {
+    letter-spacing: 1.5vw;
+  }
+}
+@keyframes smooth-h2 {
+  0% {
+    letter-spacing: normal;
+  }
+  100% {
+    letter-spacing: 5vw;
+  }
+}
+
+@keyframes smooth-h1 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateY(0);
   }
 }

@@ -2,6 +2,7 @@ import { shuffle } from './utils'
 
 import bounce from './animations/bounce'
 import scale from './animations/scale'
+import smooth from './animations/smooth'
 import './style.scss'
 
 const list = [
@@ -15,9 +16,9 @@ const list = [
 const animations = [
   bounce,
   scale,
+  smooth,
   bounce,
-  scale,
-  bounce
+  scale
 ]
 
 const messages = shuffle(list)
@@ -37,7 +38,7 @@ const init = () => {
     main.classList.remove(...main.classList)
     if(main.querySelector('.help'))
       main.removeChild(helpElement)
-      
+
     textElement.classList.remove(...textElement.classList)
     app.classList.remove(...app.classList)
     textElement.innerHTML = ''
