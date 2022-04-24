@@ -14,7 +14,6 @@
 
     const item = document.createElement('span')
     item.innerText = message[i]
-    item.style.display = 'inline-block'
     item.style.animation = animation.replace('{0}', `${delay}s`)
 
     element.appendChild(item)

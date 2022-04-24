@@ -100,13 +100,15 @@ h1 {
   }
   
   &.scale {
-    background: linear-gradient(135deg, rgba(235,75,100,1) 0%, rgba(60,84,235,1) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: linear-gradient(135deg, rgb(235,75,100) 0%, rgb(60,84,235) 100%);
     animation: scale-h1 0.7s cubic-bezier(.14,.99,.57,1.44);
     transform-origin: center;
     white-space: nowrap;
+
+    @supports (-webkit-text-fill-color: transparent) and (-webkit-text-fill-color: transparent) {
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
   
     span {
       font-size: 1vw;
@@ -116,7 +118,6 @@ h1 {
   &.smooth {
     z-index: 1;
     position: relative;
-    animation: smooth-h1 0.7s cubic-bezier(.17,1.09,.89,.97);
 
     p {
       color: white;
@@ -127,7 +128,7 @@ h1 {
 
 @keyframes bounce {
   0% { 
-    transform: translateY(10vw) translateX(10vw) skew(5deg, 50deg) scale(1, 4); 
+    transform: translateY(10vw) translateX(10vw) skew(5deg, 50deg) scale(1, 4);
     opacity: 0; 
   }
   60% { 
@@ -135,7 +136,8 @@ h1 {
     opacity: 1;
   }
   100% { 
-    transform: translateY(0) translateX(0) skew(0deg, 0deg) scale(1, 1); 
+    transform: translateY(0) translateX(0) skew(0deg, 0deg) scale(1, 1);
+    opacity: 1;
   }
 }
 @keyframes scale {
@@ -158,11 +160,15 @@ h1 {
 }
 @keyframes smooth {
   0% {
-    transform: translateY(25vw);
+    transform: translateY(25vw) translateX(100%);
     opacity: 0;
   }
+  50% {
+    transform: translateY(0) translateX(80%);
+    opacity: 1;
+  }
   100% {
-    transform: translateY(0);
+    transform: translateY(0) translateX(0);
     opacity: 1;
   }
 }
